@@ -8,7 +8,13 @@ const options = {
       title: 'Holiday Movie Ratings API',
       version: '1.0.0',
       description: 'An API for tracking Christmas movie plots and ratings'
-    }
+    },
+    servers: [
+      {
+        url: 'https://christmas-movie-bingo-api.onrender.com',
+        //url: 'http://localhost:3000', //comment this out before committing
+      },
+    ],
   },
   apis: ['./routes/*.js', './models/*.js'],
 };

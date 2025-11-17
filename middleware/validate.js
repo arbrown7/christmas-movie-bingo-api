@@ -1,14 +1,19 @@
 const validator = require('../helpers/validate');
 
-const validateFamilyMember = (req, res, next) => {
+const validateMovie = (req, res, next) => {
   const validationRule = {
-    name: 'required|string',
-    birthday: 'required|string',
-    anniversary: 'string',
-    relation: 'required|string',
-    shirtSize: 'string',
-    pantSize: 'string',
-    shoeSize: 'string'
+    title: 'required|string',
+    'mainCharacter.name': 'required|string',
+    'mainCharacter.occupation': 'string',
+    'mainCharacter.hometown': 'string',
+    'mainCharacter.currentCity': 'string',
+    'mainCharacter.loveInterest': 'string',
+    loveInterestOccupation: 'string',
+    tragicBackstory: 'string',
+    conflict: 'required|string',
+    howChristmasIsSaved: 'required|string',
+    lessonLearned: 'string',
+    movieRating: 'required|integer|min:1|max:5'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
@@ -20,30 +25,8 @@ const validateFamilyMember = (req, res, next) => {
       });
     }
 
-    const arrayFields = ['interests', 'birthdayGiftIdeas', 'christmasGiftIdeas', 'anniversaryGiftIdeas'];
-    for (const field of arrayFields) {
-      const value = req.body[field];
-      if (!value || !Array.isArray(value) || value.some(v => typeof v !== 'string')) {
-        return res.status(412).send({
-          success: false,
-          message: `${field} is required and must be an array of strings`
-        });
-      }
-    }
-
-    const dateFields = ['birthday', 'anniversary'];
-    for (const field of dateFields) {
-      const value = req.body[field];
-      if (value && isNaN(Date.parse(value))) {
-        return res.status(412).send({
-          success: false,
-          message: `${field} must be a valid date string`
-        });
-      }
-    }
-
     next();
   });
 };
 
-module.exports = { validateFamilyMember };
+module.exports = { validateMovie };

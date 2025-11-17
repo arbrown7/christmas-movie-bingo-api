@@ -4,16 +4,15 @@ const result = dotenv.config({ path: __dirname + '/.env' });
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const passport = require('./config/passport');
 const { swaggerUi, specs } = require('./swagger.js');
-const familyRoutes = require('./routes/familyRoutes');
-const giftRoutes = require('./routes/giftRoutes');
+const movieRoutes = require('./routes/movieRoutes');
+const bingoRoutes = require('./routes/bingoRoutes');
 
 
 const app = express();
 app.use(express.json());
 
-app.use(
+/*app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -21,7 +20,7 @@ app.use(
   })
 );
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session());*/
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
@@ -31,7 +30,7 @@ mongoose.connection.once('open', () => {
   console.log(`Connected to DB: ${mongoose.connection.name}`);
 });
 
-app.get(
+/*app.get(
   '/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
@@ -58,9 +57,9 @@ app.get('/logout', (req, res) => {
   });
 });
 
-const { ensureAuthenticated } = require('./middleware/auth');
-app.use('/api/family', ensureAuthenticated, familyRoutes);
-app.use('/api/gifts', ensureAuthenticated, giftRoutes);
+const { ensureAuthenticated } = require('./middleware/auth');*/
+app.use('/api/movies', movieRoutes);
+app.use('/api/bingo', bingoRoutes);
 
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));

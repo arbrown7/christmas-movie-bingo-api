@@ -1,11 +1,9 @@
-const validator = require('../helpers/validate');
+const validator = require('./validate');
 
-const validateGift = (req, res, next) => {
+const validatePrompt = (req, res, next) => {
   const validationRule = {
-    item: 'required|string',
-    price: 'string',
-    purchased: 'boolean',
-    familyMember: 'string'
+    prompt: 'required|string',
+    type: 'required|string'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
@@ -20,4 +18,4 @@ const validateGift = (req, res, next) => {
   });
 };
 
-module.exports = { validateGift };
+module.exports = { validatePrompt };

@@ -1,0 +1,290 @@
+[
+    {
+        "prompt": "Up For A Promotion",
+        "type": "work"
+    },
+    {
+        "prompt": "Workaholic",
+        "type": "work"
+    },
+    {
+        "prompt": "Character Questions Career Path",
+        "type": "work"
+    },
+    {
+        "prompt": "Stressful Big City Job",
+        "type": "work"
+    },
+    {
+        "prompt": "Evil Big Business",
+        "type": "work"
+    },
+    {
+        "prompt": "Failing Family Business",
+        "type": "work"
+    },
+    {
+        "prompt": "Coworkers Fall In Love",
+        "type": "love"
+    },
+    {
+        "prompt": "Love Triangle",
+        "type": "love"
+    },
+    {
+        "prompt": "Hometown Hunk",
+        "type": "love"
+    },
+    {
+        "prompt": "Big City Boyfriend",
+        "type": "love"
+    },
+    {
+        "prompt": "Old Flame Rekindled",
+        "type": "love"
+    },
+    {
+        "prompt": "Secret Crush",
+        "type": "love"
+    },
+    {
+        "prompt": "Protagonists Clash Before Love",
+        "type": "love"
+    },
+    {
+        "prompt": "Awkward First Interaction",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Someone Comes Home for Christmas",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Christmas Cookies",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Classic Christmas Movie Reference",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Christmas Sweater",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Snowglobe",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Caroling",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Christmas Magic",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Gift Exchange",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Nutcracker",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Jingle Bells (Song or Item)",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "A Christmas Countdown",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Mistletoe",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "We Wish You a Merry Christmas Song",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Snowball Fight",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "A Cute Dog or Cat",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Apple Cider",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Hot Chocolate",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Snowfall During a Key Moment",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Third Act Mis-understanding",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Christmas Wish or Miracle",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Sleigh Ride (Song or Activity)",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Gift Shopping",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Snowman",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Character Slips on Ice",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Red Pickup Truck",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Nativity Scene",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Snow Storm",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Expensive-Looking House",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Fireplace",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Room Decorated with Multiple Christmas Trees",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Santa Cameo",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Cozy Cabin",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Charity Fundraiser",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Christmas Market",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Gingerbread",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Character Hates Christmas",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Holiday Inspired Name",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Grand Romantic Gesture",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Ice Skating",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Egg Nog",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Holiday Competition",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Deceased Loved One",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "An Almost Kiss",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Letter to Santa",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Picking Out a Christmas Tree",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Decorating the tree",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Childhood Christmas Tradition",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Sassy BFF/Side Character",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Christmas Concert",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Match-Making Secondary Characters",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Christmas Eve Deadline",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "New 2024 Hallmark Movie",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "A Montage",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Product Placement",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Event Planning",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Protagonist Wears 3 (or More) Coats",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Ex-Partner Shows Up",
+        "type": "repeatable"
+    },
+    {
+        "prompt": "Opening Arial Shot",
+        "type": "repeatable"
+    }
+]

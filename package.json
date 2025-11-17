@@ -1,5 +1,5 @@
 {
-  "name": "family-gift-tracker",
+  "name": "christmas-movie-bingo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,7 @@
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "express-validator": "^7.2.1",
-    "mongoose": "^8.19.1",
+    "mongoose": "^8.19.4",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "swagger-autogen": "^2.23.7",
@@ -26,5 +26,14 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arbrown7/christmas-movie-bingo.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arbrown7/christmas-movie-bingo/issues"
+  },
+  "homepage": "https://github.com/arbrown7/christmas-movie-bingo#readme"
 }

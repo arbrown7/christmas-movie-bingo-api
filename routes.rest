@@ -1,0 +1,32 @@
+// LOCALHOST
+###
+GET http://localhost:3000/api/family
+###
+POST http://localhost:3000/api/family
+Content-Type: application/json
+
+{
+    "name": "Create Me",
+    "birthday": "1900-01-01",
+    "anniversary": "2000-01-01",
+    "relation": "Test",
+    "interests": ["Get", "Put", "Delete"],
+    "birthdayGiftIdeas": ["Creation"],
+    "christmasGiftIdeas": ["Creation"],
+    "anniversaryGiftIdeas": ["Creation"],
+    "shirtSize": "00",
+    "pantSize": "00",
+    "shoeSize": "00"
+}
+###
+GET http://localhost:3000/api/family/68f3e8e0a4014af0717b51fc
+###
+PUT http://localhost:3000/api/family/68f3e8e0a4014af0717b51fc
+
+{
+  "shirtSize": "Something new",
+  "pantSize": "Something different"
+}
+###
+DELETE http://localhost:3000/api/family/68f3eb8d485d4547a924b255
+

@@ -2,6 +2,7 @@ const validator = require('../helpers/validate');
 
 const validateMovie = (req, res, next) => {
   const validationRule = {
+    timestamp: 'required|string',
     title: 'required|string',
     mainCharacterName: 'required|string',
     mainCharacterOccupation: 'string',

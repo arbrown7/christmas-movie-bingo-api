@@ -61,7 +61,7 @@ const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
   timestamp: {
-    type: Date,
+    type: String,
     required: true
   },
   title: {

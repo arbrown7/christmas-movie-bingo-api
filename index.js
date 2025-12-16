@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cors({
   origin: [
     'http://localhost:5173',        // Local Vite dev server
-    'https://your-production-site.com' // Replace with your final URL
+    'https://christmas-movie-bingo-v2.onrender.com' // Replace with your final URL
   ],
   credentials: true // Important for cookies/session
 }));

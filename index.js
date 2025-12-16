@@ -52,7 +52,7 @@ app.get(
   '/auth/google/callback',
   passport.authenticate('google', {
     failureRedirect: '/login-failed',
-    successRedirect: '/login-success',
+    successRedirect: 'https://christmas-movie-bingo-v2.onrender.com',
   })
 );
 

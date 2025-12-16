@@ -3,11 +3,11 @@ const validator = require('../helpers/validate');
 const validateMovie = (req, res, next) => {
   const validationRule = {
     title: 'required|string',
-    'mainCharacter.name': 'required|string',
-    'mainCharacter.occupation': 'string',
-    'mainCharacter.hometown': 'string',
-    'mainCharacter.currentCity': 'string',
-    'mainCharacter.loveInterest': 'string',
+    mainCharacterName: 'required|string',
+    mainCharacterOccupation: 'string',
+    mainCharacterHometown: 'string',
+    mainCharacterCurrentCity: 'string',
+    mainCharacterLoveInterest: 'string',
     loveInterestOccupation: 'string',
     tragicBackstory: 'string',
     conflict: 'required|string',

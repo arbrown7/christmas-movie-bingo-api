@@ -8,9 +8,16 @@ const { swaggerUi, specs } = require('./swagger.js');
 const movieRoutes = require('./routes/movieRoutes');
 const bingoRoutes = require('./routes/bingoRoutes');
 
-
 const app = express();
 app.use(express.json());
+import cors from 'cors';
+
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://your-production-site.com'
+  ]
+}));
 
 /*app.use(
   session({

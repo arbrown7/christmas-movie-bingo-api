@@ -10,7 +10,7 @@ const bingoRoutes = require('./routes/bingoRoutes');
 
 const app = express();
 app.use(express.json());
-import cors from 'cors';
+const cors = require('cors');
 
 app.use(cors({
   origin: [

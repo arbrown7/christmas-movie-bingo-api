@@ -19,7 +19,7 @@ app.use(cors({
   ]
 }));
 
-/*app.use(
+app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -27,7 +27,7 @@ app.use(cors({
   })
 );
 app.use(passport.initialize());
-app.use(passport.session());*/
+app.use(passport.session());
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))

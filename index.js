@@ -37,7 +37,7 @@ mongoose.connection.once('open', () => {
   console.log(`Connected to DB: ${mongoose.connection.name}`);
 });
 
-/*app.get(
+app.get(
   '/auth/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
@@ -64,9 +64,9 @@ app.get('/logout', (req, res) => {
   });
 });
 
-const { ensureAuthenticated } = require('./middleware/auth');*/
-app.use('/api/movies', movieRoutes);
-app.use('/api/bingo', bingoRoutes);
+const { ensureAuthenticated } = require('./middleware/auth');
+app.use('/api/movies', ensureAuthenticated, movieRoutes);
+app.use('/api/bingo', ensureAuthenticated, bingoRoutes);
 
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));

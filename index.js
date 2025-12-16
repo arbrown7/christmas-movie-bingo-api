@@ -1,46 +1,52 @@
 const dotenv = require('dotenv');
-const result = dotenv.config({ path: __dirname + '/.env' });
+dotenv.config({ path: __dirname + '/.env' });
 
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const cors = require('cors');
+const passport = require('passport');
+require('./config/passport'); // Your Google strategy
+
 const { swaggerUi, specs } = require('./swagger.js');
 const movieRoutes = require('./routes/movieRoutes');
 const bingoRoutes = require('./routes/bingoRoutes');
+const { ensureAuthenticated } = require('./middleware/auth');
 
 const app = express();
-app.use(express.json());
-const cors = require('cors');
 
+// --- Middleware ---
+
+// Body parser
+app.use(express.json());
+
+// CORS
 app.use(cors({
   origin: [
-    'http://localhost:5173',
-    'https://your-production-site.com'
-  ]
+    'http://localhost:5173',        // Local Vite dev server
+    'https://your-production-site.com' // Replace with your final URL
+  ],
+  credentials: true // Important for cookies/session
 }));
 
+// Sessions (before passport middleware)
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || 'supersecret',
     resave: false,
     saveUninitialized: false,
+    cookie: { secure: false } // set to true if using HTTPS
   })
 );
+
+// Initialize Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error(err));
+// --- Routes ---
 
-mongoose.connection.once('open', () => {
-  console.log(`Connected to DB: ${mongoose.connection.name}`);
-});
-
-app.get(
-  '/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
-);
+// Google Auth
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 app.get(
   '/auth/google/callback',
@@ -50,26 +56,30 @@ app.get(
   })
 );
 
-app.get('/login-success', (req, res) => {
-  res.send('Login successful!');
-});
-
-app.get('/login-failed', (req, res) => {
-  res.send('Login failed');
-});
-
+app.get('/login-success', (req, res) => res.send('Login successful!'));
+app.get('/login-failed', (req, res) => res.send('Login failed'));
 app.get('/logout', (req, res) => {
   req.logout(() => {
     res.send('Logged out');
   });
 });
 
-const { ensureAuthenticated } = require('./middleware/auth');
+// Protected API routes
 app.use('/api/movies', ensureAuthenticated, movieRoutes);
 app.use('/api/bingo', ensureAuthenticated, bingoRoutes);
 
-
+// Swagger docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
+// --- MongoDB ---
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error(err));
+
+mongoose.connection.once('open', () => {
+  console.log(`Connected to DB: ${mongoose.connection.name}`);
+});
+
+// --- Start server ---
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

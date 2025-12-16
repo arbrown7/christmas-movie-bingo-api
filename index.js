@@ -63,6 +63,13 @@ app.get('/logout', (req, res) => {
     res.send('Logged out');
   });
 });
+app.get('/api/user', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json({ loggedIn: true, user: req.user });
+  } else {
+    res.json({ loggedIn: false });
+  }
+});
 
 // Protected API routes
 app.use('/api/movies', ensureAuthenticated, movieRoutes);

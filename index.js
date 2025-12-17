@@ -58,7 +58,7 @@ app.get('/logout', (req, res) => {
     res.send('Logged out');
   });
 });
-app.get('/api/user', (req, res) => {
+/*app.get('/api/user', (req, res) => {
   console.log('session:', req.session);
   console.log('user:', req.user);
 
@@ -66,7 +66,7 @@ app.get('/api/user', (req, res) => {
     loggedIn: req.isAuthenticated(),
     user: req.user || null
   });
-});
+});*/
 
 app.use('/api/movies', movieRoutes);
 app.use('/api/bingo', bingoRoutes);

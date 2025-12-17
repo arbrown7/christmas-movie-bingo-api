@@ -6,44 +6,39 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const cors = require('cors');
 const passport = require('passport');
-require('./config/passport'); // Your Google strategy
+require('./config/passport');
 
 const { swaggerUi, specs } = require('./swagger.js');
 const movieRoutes = require('./routes/movieRoutes');
 const bingoRoutes = require('./routes/bingoRoutes');
-const { ensureAuthenticated } = require('./middleware/auth');
 
 const app = express();
 
-// --- Middleware ---
-
-// Body parser
 app.use(express.json());
 
-// CORS
 app.use(cors({
   origin: [
-    'http://localhost:5173',        // Local Vite dev server
-    'https://christmas-movie-bingo-v2.onrender.com' // Replace with your final URL
+    'http://localhost:5173',
+    'https://christmas-movie-bingo-v2.onrender.com'
   ],
-  credentials: true // Important for cookies/session
+  credentials: true
 }));
 
-// Sessions (before passport middleware)
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || 'supersecret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false } // set to true if using HTTPS
+    cookie: { 
+      sameSite: 'none',
+      secure: true
+     }
   })
 );
 
-// Initialize Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-// --- Routes ---
 
 // Google Auth
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
@@ -71,14 +66,11 @@ app.get('/api/user', (req, res) => {
   }
 });
 
-// Protected API routes
 app.use('/api/movies', movieRoutes);
 app.use('/api/bingo', bingoRoutes);
 
-// Swagger docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
-// --- MongoDB ---
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error(err));
@@ -87,6 +79,5 @@ mongoose.connection.once('open', () => {
   console.log(`Connected to DB: ${mongoose.connection.name}`);
 });
 
-// --- Start server ---
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -59,11 +59,13 @@ app.get('/logout', (req, res) => {
   });
 });
 app.get('/api/user', (req, res) => {
-  if (req.isAuthenticated()) {
-    res.json({ loggedIn: true, user: req.user });
-  } else {
-    res.json({ loggedIn: false });
-  }
+  console.log('session:', req.session);
+  console.log('user:', req.user);
+
+  res.json({
+    loggedIn: req.isAuthenticated(),
+    user: req.user || null
+  });
 });
 
 app.use('/api/movies', movieRoutes);

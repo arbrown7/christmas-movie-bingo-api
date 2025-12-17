@@ -25,8 +25,24 @@ const getSingle = async (req, res) => {
 
 const createMovie = async (req, res) => {
   try {
-    const mov = new Movie(req.body);
+    const cleanMovie = {
+      timestamp: new Date(), // server controls this
+      title: req.body.title?.trim(),
+      mainCharacterName: req.body.mainCharacterName?.trim(),
+      mainCharacterOccupation: req.body.mainCharacterOccupation?.trim(),
+      mainCharacterHometown: req.body.mainCharacterHometown?.trim(),
+      mainCharacterCurrentCity: req.body.mainCharacterCurrentCity?.trim(),
+      mainCharacterLoveInterest: req.body.mainCharacterLoveInterest?.trim(),
+      loveInterestOccupation: req.body.loveInterestOccupation?.trim(),
+      conflict: req.body.conflict?.trim(),
+      howChristmasIsSaved: req.body.howChristmasIsSaved?.trim(),
+      lessonLearned: req.body.lessonLearned?.trim(),
+      movieRating: Number(req.body.movieRating)
+    };
+
+    const mov = new Movie(cleanMovie);
     await mov.save();
+
     res.status(201).json(mov);
   } catch (err) {
     res.status(400).json({ message: err.message });

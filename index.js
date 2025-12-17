@@ -72,8 +72,8 @@ app.get('/api/user', (req, res) => {
 });
 
 // Protected API routes
-app.use('/api/movies', ensureAuthenticated, movieRoutes);
-app.use('/api/bingo', ensureAuthenticated, bingoRoutes);
+app.use('/api/movies', movieRoutes);
+app.use('/api/bingo', bingoRoutes);
 
 // Swagger docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));

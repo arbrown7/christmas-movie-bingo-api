@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bingoController = require('../controllers/bingoController');
 const { validatePrompt } = require('../helpers/validatePrompt');
+const { ensureAuthenticated } = require('../middleware/auth');
 
 /**
  * @swagger
@@ -74,7 +75,7 @@ router.get('/:id', bingoController.getSingle);
  *       400:
  *         description: Validation failed
  */
-router.post('/', validatePrompt, bingoController.create);
+router.post('/', ensureAuthenticated, validatePrompt, bingoController.create);
 
 /**
  * @swagger
@@ -103,7 +104,7 @@ router.post('/', validatePrompt, bingoController.create);
  *       404:
  *         description: Bingo prompt not found
  */
-router.put('/:id', validatePrompt, bingoController.update);
+router.put('/:id', ensureAuthenticated, validatePrompt, bingoController.update);
 
 /**
  * @swagger
@@ -126,7 +127,7 @@ router.put('/:id', validatePrompt, bingoController.update);
  *       404:
  *         description: Bingo prompt not found
  */
-router.delete('/:id', bingoController.delete);
+router.delete('/:id', ensureAuthenticated, bingoController.delete);
 
 module.exports = router;
 

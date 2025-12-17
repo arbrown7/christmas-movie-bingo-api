@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const movieController = require('../controllers/movieController');
-const { validateMovie } = require('../middleware/validate'); // if you already created your validation middleware
+const { validateMovie } = require('../middleware/validate');
+const { ensureAuthenticated } = require('../middleware/auth');
 /**
  * @swagger
  * tags:
@@ -79,7 +80,7 @@ router.get('/:id', movieController.getSingle);
  *         description: Validation failed
  */
 // POST create a movie
-router.post('/', validateMovie, movieController.createMovie);
+router.post('/', ensureAuthenticated, validateMovie, movieController.createMovie);
 
 /**
  * @swagger
@@ -109,7 +110,7 @@ router.post('/', validateMovie, movieController.createMovie);
  *         description: Movie not found
  */
 // PUT update a movie
-router.put('/:id', validateMovie, movieController.updateMovie);
+router.put('/:id', ensureAuthenticated, validateMovie, movieController.updateMovie);
 
 /**
  * @swagger
@@ -133,6 +134,6 @@ router.put('/:id', validateMovie, movieController.updateMovie);
  *         description: Movie not found
  */
 // DELETE a movie
-router.delete('/:id', movieController.deleteMovie);
+router.delete('/:id', ensureAuthenticated, movieController.deleteMovie);
 
 module.exports = router;
